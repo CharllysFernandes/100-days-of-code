@@ -12,15 +12,6 @@
     width: 100vw;
   }
   
-  .container {
-    background-image: radial-gradient(circle, #0b2a4dd8 0%, #0b0d49 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-  }
-  
   .clock {
     align-items: center;
     background-color: rgba(32, 14, 84, 0.5);
@@ -38,4 +29,8 @@
 
   .alert-info{
     display: none;
+  }
+
+  tr{
+    vertical-align:middle;
   }

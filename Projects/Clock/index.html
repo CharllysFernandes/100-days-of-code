@@ -12,13 +12,35 @@
     <title>Clock!</title>
 </head>
 
-<body>
-    <main class="container-fluid d-flex flex-column align-items-center justify-content-center vh-100 vw-100 bg-dark">
+<body class="bg-dark">
+    <main class="container-fluid container-sm container-md container d-flex flex-column align-items-center justify-content-center vh-100 vw-100">
         <div class="my-2 alert alert-info w-75 text-center" role="alert" id="alert-info"></div>
         <div class="my-2 alert alert-success w-75 text-center" role="alert" id="startTime"></div>
         <button type="button" class="btn my-2 btn-outline-success" id="btn">Clique para Começar</button>
         <div class="my-2 clock fw-lighter border border-0 rounded-pill bg-info"></div>
 
+        <table class="table table-dark">
+            <thead class="table-dark">
+              <tr>
+                <th class="text-center">Dia</th>
+                <th class="text-center">Log</th>
+                <th class="text-center">Date/Time</th>
+                <th class="text-center">Share</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">01</td>
+                    <td class="text-center">Construçao do Clock para adicionar os dias e horários do desafio</td>
+                    <td class="text-center">13/12/2022 20:00</td>
+                    <td class="text-center">
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            <img class="" src="./share.svg" alt="Share">
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
     </main>
     <script src="./script.js"></script>
 </body>
