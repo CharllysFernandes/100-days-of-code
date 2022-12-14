@@ -17,3 +17,5 @@
 
 **Link usado como base inicial:** [Link do Relogio](https://medium.com/trainingcenter/criando-um-rel%C3%B3gio-digital-com-javascript-f50a3092a943)
 
+## Day 1 : 
+**Sugestão de proximo passo:** Usar o localStorage para guardar o tempo de cada dia dos 100 dias de código.
