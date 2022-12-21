@@ -22,7 +22,7 @@
         class="container-fluid container-sm container-md container d-flex flex-column align-items-center justify-content-center vh-100 vw-100">
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -39,7 +39,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Upload</button>
+                        <button type="button" class="btn btn-primary" id="upload">Upload</button>
                     </div>
                 </div>
             </div>
@@ -85,10 +85,19 @@
                 
             </div>
         </section>
+        <section>
+            <form id="formulario" method="post" enctype="multipart/form-data">
+                <input type="text" name="campo1" value="hello" />
+                <input type="text" name="campo2" value="world" />
+                <input name="arquivo" type="file" />
+                <button>Enviar</button>
+            </form>
+        </section>
     </main>
     <script src="./script.js"></script>
     <script src="./relogio.js"></script>
     <script src="./barraDeProgresso.js"></script>
+    <script src="./uploadArquivo.js"></script>
 </body>
 
 </html>
