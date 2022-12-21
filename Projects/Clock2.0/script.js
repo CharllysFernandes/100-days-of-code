@@ -53,8 +53,5 @@ comecarAgora.addEventListener("click", function () {
     esconder("floatingLog")
     esconder("comecarAgora")
     mostrar("sectionList")
-
-
-
 })
 
