@@ -1,10 +1,9 @@
-function fecharModal() {
-    document.getElementById("uploadModal").style.display = "hidden";
+const inputJson = document.getElementById("contentFile")
+
+inputJson.addEventListener("change", handleFiles, false);
+
+function handleFiles() {
+    const file = this.files
+
+    console.log(file)
 }
-const uploadArquivo = document.getElementById("upload")
-
-
-uploadArquivo.addEventListener("click", function () {
-    fecharModal()
-   console.log("fasdfasd")
-})
