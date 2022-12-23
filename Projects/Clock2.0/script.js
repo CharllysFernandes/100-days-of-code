@@ -1,3 +1,15 @@
+function limparTela() {
+    document.getElementById("sectionOne").style.display = "none";
+}
+
+function esconder(htmlTagId) {
+    document.getElementById(`${htmlTagId}`).style.display = "none";
+}
+
+function mostrar(htmlTagId) {
+    console.log(htmlTagId)
+    document.getElementById(`${htmlTagId}`).style.display = "block"
+}
 
 const buttonNotDB = document.getElementById('btnNot');
 let bancoDados = []
@@ -7,18 +19,6 @@ function baixarArquivoLocal(name, dados) {
     link.href = 'data:application/octet-stream;charset=utf-8,' + JSON.stringify(dados);
     link.download = name;
     link.click();
-}
-
-function limparTela() {
-    document.getElementById("sectionOne").style.display = "none";
-}
-function esconder(htmlTagId) {
-    document.getElementById(`${htmlTagId}`).style.display = "none";
-}
-
-function mostrar(htmlTagId) {
-    console.log(htmlTagId)
-    document.getElementById(`${htmlTagId}`).style.display = "block"
 }
 
 buttonNotDB.addEventListener("click", function () {
