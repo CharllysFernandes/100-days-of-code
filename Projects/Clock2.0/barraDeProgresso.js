@@ -18,7 +18,10 @@ document.getElementById("comecarAgora").addEventListener("click", function () {
 
         document.getElementById("barraProgresso").style.display = "flex";
         barraProgresso.innerHTML = `
+
+        <div class="progress">
         <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: ${parseFloat(barraProgresso)}%"></div>
+        </div>
         `
 })
 

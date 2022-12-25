@@ -1,5 +1,4 @@
 // 
-
 function showOff(htmlId) {
   document.getElementById(`${htmlId}`).style.display = "block";
 }
@@ -7,11 +6,40 @@ function showOff(htmlId) {
 function notShow(htmlId) {
   document.getElementById(`${htmlId}`).style.display = "none";
 }
+
 function baixarArquivoLocal(name, dados) {
   let link = document.createElement('a');
   link.href = 'data:application/octet-stream;charset=utf-8,' + JSON.stringify(dados);
   link.download = name;
   link.click();
+}
+
+
+function showTable(id, log, date) {
+  sectionShowOff.innerHTML += 
+  `
+  <table class="table table-dark table-striped fw-lighter" id="tableList">
+  <thead>
+      <tr>
+          <th scope="col">Dia</th>
+          <th scope="col">Log</th>
+          <th scope="col">Data</th>
+          <th scope="col"></th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">${id}</th>
+      <td>${log}</td>
+      <td>${date}</td>
+   <td id="btnCompatilhar">
+   <a href="#" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+   <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+   </svg></a>
+   </td>
+   </tr>
+  </tbody>
+  `
 }
 
 /* Check if there is data or not from user responses. */
@@ -29,7 +57,6 @@ const sectionShowOff = document.getElementById("showOff");
 
 buttonNotDB.addEventListener("click", function () {
   console.log("not database create one...")
-
   notShow("sectionOne");
 
   sectionShowOff.innerHTML =
@@ -49,8 +76,51 @@ buttonNotDB.addEventListener("click", function () {
 
     const firstDay = [{ id, log, msgDate }];
     console.log(firstDay[0])
+
     baixarArquivoLocal('100DaysOfCode.json', firstDay)
 
+    // Show Off Clock
+    sectionShowOff.innerHTML =
+      `
+    <div class="my-2 clock fw-lighter border border-0 rounded-pill bg-info fw-bold text-center fs-1 p-2 w-50 text-white"
+    id="relogio"></div>
+    `
+
+    // Show button initial now
+
+    sectionShowOff.innerHTML += 
+    `
+    <button type="button" class="btn btn-outline-primary" id="initial">Começar agora</button>
+    `
+
+
+    document.getElementById("initial").addEventListener("click", function () {
+    console.log("funcionou..")
+    showTable(id, log, msgDate);
+
+    let minutos = 0;
+        let porcentagemBarra = 0;
+        cron = setInterval(() => { timer(); }, 60000); // para fazer em minutos
+
+        function timer() {
+            if (minutos <= 60) {
+                minutos++
+                porcentagemBarra += 100 / 60; // 100% / 60 minutos
+                console.log(porcentagemBarra)
+                document.getElementById("progress-bar").style.width = `${porcentagemBarra}%`
+            }
+        }
+        sectionShowOff.innerHTML += `
+
+        <div class="progress">
+        <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: ${parseFloat(barraProgresso)}%"></div>
+        </div>
+        `
+
+    })
+
+
+    // console.log("Mostrar barra de progresso.");
   })
 })
 
@@ -58,7 +128,8 @@ buttonNotDB.addEventListener("click", function () {
 
 buttonYesDB.addEventListener("click", function () {
   console.log("Database yes, upload then..");
-  
+  console.log(presentJSON)
+
   // Read file .json
   document.getElementById("uploadJSON").addEventListener("click", function () {
     console.log("click uploadJson");
@@ -71,17 +142,17 @@ buttonYesDB.addEventListener("click", function () {
 
 function usingJSON(databaseJSON) {
   let jsonReader = new FileReader();
-  jsonReader.onload = function(e) {
+  jsonReader.onload = function (e) {
     var content = e.target.result;
     var intern = JSON.parse(content); // parse json 
     console.log(intern[0].id); // You can index every object
 
     // TODO
     // PROCESS JSON INTO LIST
-    
+
   };
   jsonReader.readAsText(databaseJSON);
-  
+
 }
 
 
@@ -97,16 +168,7 @@ function usingJSON(databaseJSON) {
 //     const tweet = `https://twitter.com/intent/tweet?text=Day%20${id},%20100DaysOfCode%20Challenge%20&hashtags=100DaysOfCode`
 //     const list = document.getElementById("tableList");
 //     list.innerHTML += `
-//     <tr>
-//     <th scope="row">${firstDay[0].id}</th>
-//     <td>${firstDay[0].log}</td>
-//     <td>${firstDay[0].msgDate}</td>
-//     <td id="btnCompatilhar">
-//     <a href="${tweet}" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-//     <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-//     </svg></a>
-//     </td>
-//     </tr>
+//     
 //     `;
 
 
