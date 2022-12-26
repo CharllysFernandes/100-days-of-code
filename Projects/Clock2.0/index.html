@@ -30,14 +30,13 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary" id="uploadJSON">Salvar</button>
+                        <button type="button" class="btn btn-primary" id="uploadJSON" data-bs-dismiss="modal">Salvar</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Fim modal -->
         <section id="sectionOne">
-
             <h1 class="text-white fw-light mb-3">Você tem os dados do relógio?</h1>
             <div class="d-grid gap-2 col-4 mx-auto">
                 <!-- <button class="btn btn-primary" type="button" id="btnYes" data-bs-toggle="modal"
@@ -48,25 +47,10 @@
             </div>
 
         </section>
-        <section id="showOff" class="container form-text d-flex flex-column gap-2 align-items-center">
-        </section>
-        <section id="sectionClock" style="display: none;" class="container text-center w-50">
-            <h1 class="fw-lighter text-white fs-4">100 Days of Code</h1>
-            <div class="my-2 clock fw-lighter border border-0 rounded-pill bg-info fw-bold text-center fs-1 p-2"
-                id="relogio"></div>
-            <div class="form-floating my-4" id="floatingLog">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                <label for="floatingTextarea">Registre uma mensagem para começar <span
-                        style="color: red;">*</span></label>
-            </div>
-            <button type="button" class="btn btn-outline-success" id="comecarAgora" data-bs-toggle="tooltip"
-                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                data-bs-title="This top tooltip is themed via CSS variables.">Começar
-                Agora</button>
-        </section>
+        <section id="showOff" class="container form-text d-flex flex-column gap-2 align-items-center"></section>
+        
     </main>
     <script src="./script.js"></script>
-    <script src="./barraDeProgresso.js"></script>
 </body>
 
 </html>
